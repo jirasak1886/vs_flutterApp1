@@ -25,8 +25,11 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // เพิ่มฟังก์ชันเพื่อตรวจสอบสถานะการล็อกอิน
-  bool isLoggedIn() {
-    return _user != null && _accessToken != null && _refreshToken != null;
+  void updateAccessToken(String accessToken) {
+    _accessToken = accessToken;
+    if (refreshToken != null) {
+      _refreshToken = refreshToken;
+    }
+    notifyListeners();
   }
 }

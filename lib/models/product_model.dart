@@ -4,11 +4,12 @@
 
 import 'dart:convert';
 
-Usermodel usermodelFromJson(String str) => Usermodel.fromJson(json.decode(str));
+Productmodel usermodelFromJson(String str) =>
+    Productmodel.fromJson(json.decode(str));
 
-String usermodelToJson(Usermodel data) => json.encode(data.toJson());
+String usermodelToJson(Productmodel data) => json.encode(data.toJson());
 
-class Usermodel {
+class Productmodel {
   final String productName;
   final String productType;
   final String price;
@@ -16,7 +17,7 @@ class Usermodel {
   final String accessToken;
   final String refreshToken;
 
-  Usermodel({
+  Productmodel({
     required this.productName,
     required this.productType,
     required this.price,
@@ -25,7 +26,7 @@ class Usermodel {
     required this.refreshToken,
   });
 
-  factory Usermodel.fromJson(Map<String, dynamic> json) => Usermodel(
+  factory Productmodel.fromJson(Map<String, dynamic> json) => Productmodel(
         productName: json["product_name"],
         productType: json["product_type"],
         price: json["price"],
